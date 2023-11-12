@@ -1,16 +1,19 @@
 .marqueeContainer {
-  width: 100%;
   overflow: hidden;
-}
-
-.marquee {
   white-space: nowrap;
-  animation: marquee-scroll 10s linear infinite;
+  width: 100%;
 }
 
-@keyframes marquee-scroll {
+.marqueeContent {
+  display: inline-block;
+  animation: marquee 20s linear infinite;
+  transform: translateX(-100%);
+  font-size: 30px;
+}
+
+@keyframes marquee {
   0% {
-    transform: translateX(100%);
+    transform: translateX(0%);
   }
   100% {
     transform: translateX(-100%);

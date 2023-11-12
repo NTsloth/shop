@@ -6,6 +6,7 @@
   padding: 0;
   box-sizing: border-box;
   font-family: "League Spartan", sans-serif;
+  transition: 0.6s ease-in-out;
 }
 
 h1 {
@@ -91,6 +92,12 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
+  flex-direction: row; /* Updated to row for desktop view */
+}
+
+#navbar.open {
+  display: flex;
+  flex-direction: column; /* For mobile view */
 }
 
 #navbar li {
@@ -1037,6 +1044,9 @@ footer .copyright {
   .section-p1 {
     padding: 40px 40px;
   }
+  #header {
+    padding: 20px;
+  }
 
   #navbar {
     display: flex;
@@ -1047,7 +1057,7 @@ footer .copyright {
     top: 0;
     right: -300px;
     height: 100vh;
-    width: 300px;
+    /* width: 300px; */
     background-color: #e3e6f3;
     box-shadow: 0 40px 60px rgba(0, 0, 0, 0.1);
     padding: 80px 0 0 10px;
@@ -1057,9 +1067,18 @@ footer .copyright {
   #navbar.active {
     right: 0px;
   }
-
+  #navbar li a.active::after,
+  #navbar li a:hover::after {
+    width: 100%;
+    left: 0;
+  }
   #navbar li {
     margin-bottom: 25px;
+  }
+  #navbar li a {
+    font-size: 30px;
+    line-height: 36px;
+    text-align: center;
   }
 
   #bar {
@@ -1088,7 +1107,19 @@ footer .copyright {
     color: #222;
     font-size: 24px;
   }
-
+  #navbar.open {
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    align-items: center;
+    justify-content: center;
+    top: 70px; /* Adjust this value according to your design */
+    left: 0;
+    width: 100%;
+    background-color: #e3e6f3;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.06);
+    z-index: 999;
+  }
   #lg-bag {
     display: none;
   }
@@ -1162,9 +1193,16 @@ footer .copyright {
   #form-details form {
     width: 50%;
   }
+
+  #about-app .video {
+    width: 100%;
+  }
 }
 
 @media (max-width: 477px) {
+  #header {
+    padding: 10px 30px;
+  }
   #hero h2,
   #hero h1 {
     font-size: 40px;
@@ -1177,10 +1215,6 @@ footer .copyright {
   }
   .section-p1 {
     padding: 20px;
-  }
-
-  #header {
-    padding: 10px 30px;
   }
 
   h1 {
@@ -1265,10 +1299,6 @@ footer .copyright {
     padding-left: 0px;
     overflow-x: hidden;
     max-width: 100%;
-  }
-
-  #about-app .video {
-    width: 100%;
   }
 
   /* contact page */

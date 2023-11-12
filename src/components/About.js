@@ -35,7 +35,7 @@ export default function About() {
           Download Our <a href="#">App</a>
         </h1>
         <div className="video">
-          <video autoplay muted loop src="img/about/1.mp4"></video>
+          <video autoPlay muted loop src="img/about/1.mp4"></video>
         </div>
       </section>
       <section id="feature" className="section-p1">

@@ -8,10 +8,6 @@ export default function Home() {
   const { addToCart } = useCart();
   const firstProContainer = initialProducts.slice(0, 8);
   const secondProContainer = initialProducts.slice(8, 16);
-  console.log(
-    "Product starss:",
-    initialProducts.map((product) => product.stars)
-  );
 
   const handleCartIconClick = (event, product) => {
     event.stopPropagation();
