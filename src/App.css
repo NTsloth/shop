@@ -722,6 +722,7 @@ footer .copyright {
 
 #about-head div {
   padding-left: 40px;
+  overflow-x: hidden;
 }
 
 #about-app {
@@ -972,7 +973,7 @@ footer .copyright {
   font-size: 13px;
 }
 
-@media (max-width: 799px) {
+@media (max-width: 767px) {
   .section-p1 {
     padding: 40px 40px;
   }
@@ -1075,6 +1076,28 @@ footer .copyright {
     width: 70%;
   }
 
+  /* blog page */
+
+  #blog {
+    padding: 100px 20px 0 20px;
+  }
+
+  #blog .blog-box {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  #blog .blog-img {
+    width: 100%;
+    margin-right: 0px;
+    margin-bottom: 30px;
+  }
+
+  #blog .blog-details {
+    width: 100%;
+  }
+
   /* contact page */
 
   #form-details {
@@ -1106,10 +1129,6 @@ footer .copyright {
   #hero {
     padding: 0 20px;
     background-position: 55%;
-  }
-
-  #feature {
-    justify-content: space-between;
   }
 
   #feature .fe-box {
@@ -1168,28 +1187,6 @@ footer .copyright {
     width: 100%;
   }
 
-  /* blog page */
-
-  #blog {
-    padding: 100px 20px 0 20px;
-  }
-
-  #blog .blog-box {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-  }
-
-  #blog .blog-img {
-    width: 100%;
-    margin-right: 0px;
-    margin-bottom: 30px;
-  }
-
-  #blog .blog-details {
-    width: 100%;
-  }
-
   /* about page */
 
   #about-head {
@@ -1203,6 +1200,8 @@ footer .copyright {
 
   #about-head div {
     padding-left: 0px;
+    overflow-x: hidden;
+    max-width: 100%;
   }
 
   #about-app .video {
