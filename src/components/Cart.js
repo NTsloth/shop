@@ -3,12 +3,12 @@ import React from "react";
 export default function Cart() {
   return (
     <div>
-      <section id="page-header" class="about-header">
+      <section id="page-header" className="about-header">
         <h2>#let's-talk</h2>
         <p>LEAVE A MESSAGE, We love to hear from you!</p>
       </section>
 
-      <section id="cart" class="section-p1">
+      <section id="cart" className="section-p1">
         <table width="100%">
           <thead>
             <tr>
@@ -25,7 +25,7 @@ export default function Cart() {
               <td>
                 <a href="#">
                   {" "}
-                  <i class="fas fa-times-circle"></i>
+                  <i className="fas fa-times-circle"></i>
                 </a>
               </td>
               <td>
@@ -42,7 +42,7 @@ export default function Cart() {
               <td>
                 <a href="#">
                   {" "}
-                  <i class="fas fa-times-circle"></i>
+                  <i className="fas fa-times-circle"></i>
                 </a>
               </td>
               <td>
@@ -59,7 +59,7 @@ export default function Cart() {
               <td>
                 <a href="#">
                   {" "}
-                  <i class="fas fa-times-circle"></i>
+                  <i className="fas fa-times-circle"></i>
                 </a>
               </td>
               <td>
@@ -76,12 +76,12 @@ export default function Cart() {
         </table>
       </section>
 
-      <section id="cart-add" class="section-p1">
+      <section id="cart-add" className="section-p1">
         <div id="coupon">
           <h3>Apply Coupon</h3>
           <div>
             <input type="text" placeholder="Enter Your Coupon" />
-            <button class="normal">Apply</button>
+            <button className="normal">Apply</button>
           </div>
         </div>
         <div id="subtotal">
@@ -104,13 +104,10 @@ export default function Cart() {
               </td>
             </tr>
           </table>
-          <button class="normal">Proceed to checkout</button>
+          <button className="normal">Proceed to checkout</button>
         </div>
       </section>
 
-  
-
-      <script src="./script.js"></script>
     </div>
   );
 }

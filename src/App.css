@@ -555,6 +555,11 @@ footer .copyright {
 
 #pagination {
   text-align: center;
+  display: flex;
+  gap: 15px;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
 }
 
 #pagination a {
@@ -564,8 +569,12 @@ footer .copyright {
   border-radius: 4px;
   color: #fff;
   font-weight: 600;
+  transition: 0.6 ease-in-out;
 }
-
+#pagination a:hover {
+  background-color: #088179b9;
+  transition: 0.6 ease-in-out;
+}
 #pagination a i {
   font-size: 16px;
   font-weight: 600;

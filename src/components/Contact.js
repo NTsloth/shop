@@ -3,36 +3,44 @@ import React from "react";
 export default function Contact() {
   return (
     <div>
-      <section id="page-header" class="about-header">
+      <section id="page-header" className="about-header">
         <h2>#let's-talk</h2>
         <p>LEAVE A MESSAGE, We love to hear from you!</p>
       </section>
 
-      <section id="contact-details" class="section-p1">
-        <div class="details">
+      <section id="contact-details" className="section-p1">
+        <div className="details">
           <span>GET IN TOUCH</span>
           <h2>Visit on of our agency locations or contat us today</h2>
           <h3>Head Offive</h3>
           <div>
             <li>
-              <i class="fas fa-map"></i>
+              <i className="fas fa-map"></i>
               <p>56 Glassford Street Glasglow G1 1UL New York</p>
             </li>
             <li>
-              <i class="fas fa-envelope"></i>
-              <p>contact@example.com</p>
+              <i className="fas fa-envelope"></i>
+              <p>
+                <a href="mailto:sloth2003nt@gmail.com">sloth2003nt@gmail.com</a>
+              </p>
             </li>
             <li>
-              <i class="fas fa-phone-alt"></i>
-              <p>contact@example.com</p>
+              <i className="fas fa-phone-alt"></i>
+              <p>
+                <a href="tel:+995598500215">+995598500215</a>
+              </p>
             </li>
             <li>
-              <i class="fas fa-clock"></i>
+              <i className="fas fa-clock"></i>
+              <p>Monday to Saturday: 9:00 am to 16:00 pm</p>
+            </li>
+            <li>
+              <i className="fas fa-clock"></i>
               <p>Monday to Saturday: 9:00am to 16pm</p>
             </li>
           </div>
         </div>
-        <div class="map">
+        <div className="map">
           <iframe
             src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d79041.43812863505!2d-1.3176272045980324!3d51.75050176279572!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4876c6a9ef8c485b%3A0xd2ff1883a001afed!2z4YOd4YOl4YOh4YOk4YOd4YOg4YOT4YOY4YOhIOGDo-GDnOGDmOGDleGDlOGDoOGDoeGDmOGDouGDlOGDouGDmA!5e0!3m2!1ska!2sge!4v1650127335168!5m2!1ska!2sge"
             width="600"
@@ -58,9 +66,9 @@ export default function Contact() {
             rows="10"
             placeholder="Your Message"
           ></textarea>
-          <button class="normal">Submit</button>
+          <button className="normal">Submit</button>
         </form>
-        <div class="people">
+        <div className="people">
           <div>
             <img src="img/people/1.png" alt="" />
             <p>
@@ -88,23 +96,19 @@ export default function Contact() {
         </div>
       </section>
 
-      <section id="newsletter" class="section-p1 section-m1">
-        <div class="newstext">
+      <section id="newsletter" className="section-p1 section-m1">
+        <div className="newstext">
           <h4>Sign Up For Newsletters</h4>
           <p>
             Get E-mail updates about our latest show and
             <span>special offers</span>.
           </p>
         </div>
-        <div class="form">
+        <div className="form">
           <input type="text" placeholder="Your email address" />
-          <button class="normal">Sign Up</button>
+          <button className="normal">Sign Up</button>
         </div>
       </section>
-
-  
-
-      <script src="./script.js"></script>
     </div>
   );
 }
