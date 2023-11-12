@@ -2,8 +2,12 @@ import React, { useState, useEffect } from "react";
 import initialProducts from "./UI/InitialProducts";
 import { useLocation } from "react-router-dom";
 import { Link } from "react-router-dom";
+import NewsLetter from "./NewsLetter";
+import { useCart } from "./UI/CartContext";
 
 export default function Product() {
+  const { addToCart } = useCart();
+
   const location = useLocation();
   const { product } = location.state;
 
@@ -63,12 +67,17 @@ export default function Product() {
             <option>Large</option>
           </select>
           <input type="number" value="1" />
-          <button className="normar">Add To Cart</button>
+          <Link
+            to="/cart"
+            onClick={() => addToCart(product)}
+            className="normar"
+          >
+            Add To Cart
+          </Link>
           <h4>Product Details</h4>
           <span>{product.description}</span>
         </div>
       </section>
-
       <section id="product1" className="section-p1">
         <h2>Featured Products</h2>
         <p>Summer Collection New Modern Design</p>
@@ -93,26 +102,14 @@ export default function Product() {
                 </div>
                 <h4>${randomProduct.price}</h4>
               </div>
-              <Link to="/cart">
+              <Link to="/cart" onClick={() => addToCart(product)}>
                 <i className="fas fa-shopping-cart cart"></i>
               </Link>
             </div>
           ))}
         </div>
       </section>
-      <section id="newsletter" className="section-p1 section-m1">
-        <div className="newstext">
-          <h4>Sign Up For Newsletters</h4>
-          <p>
-            Get E-mail updates about our latest show and
-            <span>special offers</span>.
-          </p>
-        </div>
-        <div className="form">
-          <input type="text" placeholder="Your email address" />
-          <button className="normal">Sign Up</button>
-        </div>
-      </section>
+      <NewsLetter />
     </div>
   );
 }

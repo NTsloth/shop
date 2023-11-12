@@ -1,8 +1,11 @@
-import React from "react";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import initialProducts from "./UI/InitialProducts";
+import NewsLetter from "./NewsLetter";
+import { useCart } from "./UI/CartContext";
 
 export default function Home() {
+  const { addToCart } = useCart();
   const firstProContainer = initialProducts.slice(0, 8);
   const secondProContainer = initialProducts.slice(8, 16);
   console.log(
@@ -10,6 +13,10 @@ export default function Home() {
     initialProducts.map((product) => product.stars)
   );
 
+  const handleCartIconClick = (event, product) => {
+    event.stopPropagation();
+    addToCart(product);
+  };
   return (
     <div>
       <section id="hero">
@@ -19,7 +26,6 @@ export default function Home() {
         <p>Save more width coupons & up to 70% off!</p>
         <button>Shop Now</button>
       </section>
-
       <section id="feature" className="section-p1">
         <div className="fe-box">
           <img src="img/features/f1.png" alt="" />
@@ -46,7 +52,6 @@ export default function Home() {
           <h6>F24/7 Support</h6>
         </div>
       </section>
-
       <section id="product1" className="section-p1">
         <h2>Featured Products</h2>
         <p>Summer Collection New Modern Design</p>
@@ -71,14 +76,13 @@ export default function Home() {
                 </div>
                 <h4>${product.price}</h4>
               </div>
-              <Link to="/cart">
+              <div onClick={(event) => handleCartIconClick(event, product)}>
                 <i className="fas fa-shopping-cart cart"></i>
-              </Link>
+              </div>
             </div>
           ))}
         </div>
       </section>
-
       <section id="banner" className="section-m1">
         <h4>Repair Services</h4>
         <h2>
@@ -86,7 +90,6 @@ export default function Home() {
         </h2>
         <button className="normal">Explore More</button>
       </section>
-
       <section id="product1" className="section-p1">
         <div className="pro-container">
           {secondProContainer.map((product) => (
@@ -109,9 +112,9 @@ export default function Home() {
                 </div>
                 <h4>${product.price}</h4>
               </div>
-              <Link to="/cart">
+              <div onClick={(event) => handleCartIconClick(event, product)}>
                 <i className="fas fa-shopping-cart cart"></i>
-              </Link>
+              </div>
             </div>
           ))}
         </div>
@@ -130,7 +133,6 @@ export default function Home() {
           <button className="white">Collection</button>
         </div>
       </section>
-
       <section id="banner3">
         <div className="banner-box">
           <h2>SEASONAL SALE</h2>
@@ -145,20 +147,7 @@ export default function Home() {
           <h3>New Trendy Prints</h3>
         </div>
       </section>
-
-      <section id="newsletter" className="section-p1 section-m1">
-        <div className="newstext">
-          <h4>Sign Up For Newsletters</h4>
-          <p>
-            Get E-mail updates about our latest show and
-            <span>special offers</span>.
-          </p>
-        </div>
-        <div className="form">
-          <input type="text" placeholder="Your email address" />
-          <button className="normal">Sign Up</button>
-        </div>
-      </section>
+      <NewsLetter />
     </div>
   );
 }

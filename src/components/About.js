@@ -1,5 +1,6 @@
 import React from "react";
 import Marquee from "./UI/Marquee";
+import NewsLetter from "./NewsLetter";
 
 export default function About() {
   return (
@@ -63,19 +64,7 @@ export default function About() {
           <h6>F24/7 Support</h6>
         </div>
       </section>
-      <section id="newsletter" className="section-p1 section-m1">
-        <div className="newstext">
-          <h4>Sign Up For Newsletters</h4>
-          <p>
-            Get E-mail updates about our latest show and
-            <span>special offers</span>.
-          </p>
-        </div>
-        <div className="form">
-          <input type="text" placeholder="Your email address" />
-          <button className="normal">Sign Up</button>
-        </div>
-      </section>
+      <NewsLetter />
     </div>
   );
 }

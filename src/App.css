@@ -54,7 +54,7 @@ button.normal {
   cursor: pointer;
   border: none;
   outline: none;
-  transition: 0.2s;
+  transition: 0.6s ease-in-out;
 }
 
 button.white {
@@ -66,7 +66,7 @@ button.white {
   cursor: pointer;
   border: 1px solid #fff;
   outline: none;
-  transition: 0.2s;
+  transition: 0.6s ease-in-out;
   margin-top: 15px;
 }
 
@@ -104,7 +104,7 @@ body {
   font-size: 16px;
   font-weight: 600;
   color: #1a1a1a;
-  transition: 0.3s ease;
+  transition: 0.6s ease-in-out;
 }
 
 #navbar li a:hover {
@@ -115,6 +115,10 @@ body {
   color: #088178;
 }
 
+#navbar li a.active::before,
+#navbar li a:hover::before {
+  transition: 0.6s ease-in-out;
+}
 #navbar li a.active::after,
 #navbar li a:hover::after {
   content: "";
@@ -263,7 +267,7 @@ body {
   cursor: pointer;
   box-shadow: 20px 20px 30px rgba(0, 0, 0, 0.02);
   margin: 15px 0;
-  transition: 0.2s ease;
+  transition: 0.6s ease-in-out ease;
   position: relative;
 }
 
@@ -316,7 +320,32 @@ body {
   bottom: 20px;
   right: 10px;
 }
+#product1 .pro .des .activeCart svg path {
+  fill: red;
+}
+#product1 .pro .des .cart {
+  width: 40px;
+  height: 40px;
+  line-height: 40px;
+  border-radius: 50px;
+  background-color: #e8f6ea;
+  color: #088178;
+  border: 1px solid #cce7d0;
+  position: absolute;
+  bottom: 20px;
+  right: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+#product1 .pro .des span {
+  color: #606063;
+  font-size: 12px;
+}
 
+#product1 .pro .star {
+  margin-top: 15px;
+}
 #banner {
   display: flex;
   flex-direction: column;
@@ -698,7 +727,7 @@ footer .copyright {
   color: #000;
   font-weight: 700;
   position: relative;
-  transition: 0.3s;
+  transition: 0.6s ease-in-out;
 }
 
 #blog .blog-details a::after {
@@ -881,7 +910,9 @@ footer .copyright {
 #cart {
   overflow-x: auto;
 }
-
+#cart button {
+  border: none;
+}
 #cart table {
   width: 100%;
   border-collapse: collapse;
@@ -1020,7 +1051,7 @@ footer .copyright {
     background-color: #e3e6f3;
     box-shadow: 0 40px 60px rgba(0, 0, 0, 0.1);
     padding: 80px 0 0 10px;
-    transition: 0.3s;
+    transition: 0.6s ease-in-out;
   }
 
   #navbar.active {

@@ -1,9 +1,12 @@
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import initialProducts from "./UI/InitialProducts";
+import { useCart } from "./UI/CartContext";
 
 const Shop = () => {
   const [products, setProducts] = useState([]);
+  const { addToCart } = useCart();
+
   const [currentPage, setCurrentPage] = useState(1);
   const productsPerPage = 12;
 
@@ -17,7 +20,7 @@ const Shop = () => {
 
   useEffect(() => {
     fetchProducts();
-  }, []); 
+  }, []);
 
   const indexOfLastProduct = currentPage * productsPerPage;
   const indexOfFirstProduct = indexOfLastProduct - productsPerPage;
@@ -30,6 +33,11 @@ const Shop = () => {
     setCurrentPage(pageNumber);
   };
 
+  const handleCartIconClick = (event, product) => {
+    event.stopPropagation(); // Prevents the event from reaching the link
+    addToCart(product);
+  };
+
   return (
     <div>
       <section id="product1" className="section-p1">
@@ -37,15 +45,15 @@ const Shop = () => {
         <p>Summer Collection New Modern Design</p>
         <div className="pro-container">
           {currentProducts.map((product) => (
-            <Link
-              key={product.id}
-              to={{
-                pathname: `/shop/${product.id}`,
-                state: { product: product },
-              }}
-              className="pro"
-            >
-              <img src={product.image} alt="" />
+            <div key={product.id} className="pro">
+              <Link
+                to={{
+                  pathname: `/shop/${product.id}`,
+                  state: { product: product },
+                }}
+              >
+                <img src={product.image} alt="" />
+              </Link>
               <div className="des">
                 <span>{product.brand}</span>
                 <h5>{product.name}</h5>
@@ -55,8 +63,11 @@ const Shop = () => {
                   ))}
                   <h4>${product.price}</h4>
                 </div>
+                <div onClick={(event) => handleCartIconClick(event, product)}>
+                  <i className="fas fa-shopping-cart cart"></i>
+                </div>
               </div>
-            </Link>
+            </div>
           ))}
         </div>
         <div id="pagination" className="section-p1">

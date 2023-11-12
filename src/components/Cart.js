@@ -1,13 +1,16 @@
+// Cart.js
 import React from "react";
+import { useCart } from "./UI/CartContext";
 
-export default function Cart() {
+const Cart = () => {
+  const { cart, updateQuantity, removeItem } = useCart();
+
+  const calculateSubtotal = () => {
+    return cart.reduce((total, item) => total + item.price * item.quantity, 0);
+  };
+
   return (
     <div>
-      <section id="page-header" className="about-header">
-        <h2>#let's-talk</h2>
-        <p>LEAVE A MESSAGE, We love to hear from you!</p>
-      </section>
-
       <section id="cart" className="section-p1">
         <table width="100%">
           <thead>
@@ -21,75 +24,41 @@ export default function Cart() {
             </tr>
           </thead>
           <tbody>
-            <tr>
-              <td>
-                <a href="#">
-                  {" "}
-                  <i className="fas fa-times-circle"></i>
-                </a>
-              </td>
-              <td>
-                <img src="img/products/f1.jpg" alt="" />
-              </td>
-              <td>Cartoon Astronaut T-Shirts</td>
-              <td>$118.19</td>
-              <td>
-                <input type="number" value="1" />
-              </td>
-              <td>$118.19</td>
-            </tr>
-            <tr>
-              <td>
-                <a href="#">
-                  {" "}
-                  <i className="fas fa-times-circle"></i>
-                </a>
-              </td>
-              <td>
-                <img src="img/products/f2.jpg" alt="" />
-              </td>
-              <td>Cartoon Astronaut T-Shirts</td>
-              <td>$118.19</td>
-              <td>
-                <input type="number" value="1" />
-              </td>
-              <td>$118.19</td>
-            </tr>
-            <tr>
-              <td>
-                <a href="#">
-                  {" "}
-                  <i className="fas fa-times-circle"></i>
-                </a>
-              </td>
-              <td>
-                <img src="img/products/f3.jpg" alt="" />
-              </td>
-              <td>Cartoon Astronaut T-Shirts</td>
-              <td>$118.19</td>
-              <td>
-                <input type="number" value="1" />
-              </td>
-              <td>$118.19</td>
-            </tr>
+            {cart.map((item, index) => (
+              <tr key={item.id}>
+                <td>
+                  <button onClick={() => removeItem(index)}>
+                    <i className="fas fa-times-circle"></i>
+                  </button>
+                </td>
+                <td>
+                  <img src={item.image} alt="" />
+                </td>
+                <td>{item.name}</td>
+                <td>${item.price}</td>
+                <td>
+                  <input
+                    type="number"
+                    value={item.quantity}
+                    onChange={(e) =>
+                      updateQuantity(index, parseInt(e.target.value, 10))
+                    }
+                  />
+                </td>
+                <td>${item.price * item.quantity}</td>
+              </tr>
+            ))}
           </tbody>
         </table>
       </section>
 
       <section id="cart-add" className="section-p1">
-        <div id="coupon">
-          <h3>Apply Coupon</h3>
-          <div>
-            <input type="text" placeholder="Enter Your Coupon" />
-            <button className="normal">Apply</button>
-          </div>
-        </div>
         <div id="subtotal">
           <h3>Cart Totals</h3>
           <table>
             <tr>
               <td>Cart Subtotal</td>
-              <td>$ 335</td>
+              <td>${calculateSubtotal()}</td>
             </tr>
             <tr>
               <td>Shipping</td>
@@ -100,14 +69,15 @@ export default function Cart() {
                 <strong>Total</strong>
               </td>
               <td>
-                <strong>$ 335</strong>
+                <strong>${calculateSubtotal()}</strong>
               </td>
             </tr>
           </table>
           <button className="normal">Proceed to checkout</button>
         </div>
       </section>
-
     </div>
   );
-}
+};
+
+export default Cart;
